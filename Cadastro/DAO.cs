@@ -79,28 +79,28 @@ namespace Cadastro
                 telefone[i] = "";
                 cidade[i] = "";
                 endereco[i] = "";
-
-                //Preparando o comando para o banco
-                MySqlCommand coletar = new MySqlCommand(query, conexao);
-                //Leitura do banco
-                MySqlDataReader leitura = coletar.ExecuteReader();
-
-                i = 0;
-                contador = 0;
-
-                while (leitura.Read())
-                {
-                    codigo[i] = Convert.ToInt32(leitura["codigo"]);
-                    nome[i] = "" + leitura["nome"];
-                    telefone[i] = "" + leitura["telefone"];
-                    cidade[i] = "" + leitura["cidade"];
-                    endereco[i] = "" + leitura["endereco"];
-                    i++;
-                    contador++;
-                }//Preenchendo o vetor com os dados do banco
-
-                leitura.Close();//Encerrar o acesso ao Banco de Dados
             }//Fim do For
+
+            //Preparando o comando para o banco
+            MySqlCommand coletar = new MySqlCommand(query, conexao);
+            //Leitura do banco
+            MySqlDataReader leitura = coletar.ExecuteReader();
+
+            i = 0;
+            contador = 0;
+
+            while (leitura.Read())
+            {
+                codigo[i] = Convert.ToInt32(leitura["codigo"]);
+                nome[i] = "" + leitura["nome"];
+                telefone[i] = "" + leitura["telefone"];
+                cidade[i] = "" + leitura["cidade"];
+                endereco[i] = "" + leitura["endereco"];
+                i++;
+                contador++;
+            }//Preenchendo o vetor com os dados do banco
+
+            leitura.Close();//Encerrar o acesso ao Banco de Dados
         }//Fim do preencher
 
         //Método para consultar TODOS os dados do banco de dados
